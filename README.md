@@ -61,7 +61,7 @@
 5. **结果反馈**：
    - 注册成功：设置成功消息 `successMsg`，重定向到登录页面 (`/admin/login`)。
    - 注册失败：设置错误消息 `errorMsg`，重定向回注册页面。
-
+![image](https://github.com/zktlkhjp/My_Project/blob/master/49d0c82169c866acd481fa5088902a7.png)
 ------
 
 ### 用户个人资料管理模块
