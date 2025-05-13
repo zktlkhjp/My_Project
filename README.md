@@ -31,7 +31,7 @@
 5. **结果处理**：
    - 成功则重定向到首页 (`/admin/index`)，失败则返回登录页。
 ###效果如下：
-![image](57f55b81cd8e0109dfb090f0a4c6678.png)
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/57f55b81cd8e0109dfb090f0a4c6678.png)
 ------
 
 ### 注册模块
@@ -61,7 +61,7 @@
 5. **结果反馈**：
    - 注册成功：设置成功消息 `successMsg`，重定向到登录页面 (`/admin/login`)。
    - 注册失败：设置错误消息 `errorMsg`，重定向回注册页面。
-![image](https://github.com/zktlkhjp/My_Project/blob/master/1747150011219.png)
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/1747150011219.png)
 ------
 
 ### 用户个人资料管理模块
@@ -109,7 +109,7 @@
 4. **结果处理**：
    - 成功：返回 `success`。
    - 失败：返回 `修改失败`。
-
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/666bc40ffb7099cdbceaba09a54020a.png)
 ------
 
 ### 分类管理模块
@@ -144,7 +144,7 @@
 
 - 根据查询到的分类数据列表和总记录数，构造 `PageResult` 对象，该对象包含了分页数据、总记录数、当前页码、每页条数等信息。
 - 将 `PageResult` 对象作为响应结果返回给前端，前端接收到数据后，jqGrid 会根据返回的数据更新表格的显示内容，呈现出分页后的分类列表。
-
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/05bbef415a7be5aa8abfacace7d7a07.png)
 ------
 
 #### **2. 分类列表新增功能**
