@@ -31,7 +31,7 @@
 5. **结果处理**：
    - 成功则重定向到首页 (`/admin/index`)，失败则返回登录页。
 ###效果如下：
-![image](https://github.com/zktlkhjp/My_Project/blob/master/57f55b81cd8e0109dfb090f0a4c6678.png)
+![image](57f55b81cd8e0109dfb090f0a4c6678.png)
 ------
 
 ### 注册模块
