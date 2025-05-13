@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>personal blog | 注册</title>
+    <!-- 保持与登录页相同的meta标签和响应式设置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" th:href="@{/admin/dist/img/favicon.png}"/>
+    <!-- 共用样式文件 -->
+    <link rel="stylesheet" th:href="@{/admin/dist/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/dist/css/ionicons.min.css}">
+    <link rel="stylesheet" th:href="@{/admin/dist/css/adminlte.min.css}">
+    <!-- 保持粒子背景样式 -->
+    <style>
+        canvas {
+            display: block;
+            vertical-align: bottom;
+        }
+        #particles {
+            background-color: #F7FAFC;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="hold-transition login-page">
+<div id="particles"></div>
+<div class="login-box">
+    <div class="login-logo" style="color: #007bff;">
+        <h1>用户注册</h1>
+    </div>
+
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">创建您的个人博客账号</p>
+
+            <!-- 错误提示区域 -->
+            <div th:if="${not #strings.isEmpty(session.errorMsg)}" class="form-group">
+                <div class="alert alert-danger" th:text="${session.errorMsg}"></div>
+            </div>
+
+            <!-- 注册表单 -->
+            <form th:action="@{/admin/register}" method="post">
+                <!-- 登录用户名 -->
+                <div class="form-group has-feedback">
+                    <span class="fa fa-user form-control-feedback"></span>
+                    <input type="text" name="loginUserName" class="form-control"
+                           placeholder="请输入登录账号" required>
+                </div>
+
+                <!-- 昵称 -->
+                <div class="form-group has-feedback">
+                    <span class="fa fa-id-card form-control-feedback"></span>
+                    <input type="text" name="nickName" class="form-control"
+                           placeholder="请输入昵称" required>
+                </div>
+
+                <!-- 密码 -->
+                <div class="form-group has-feedback">
+                    <span class="fa fa-lock form-control-feedback"></span>
+                    <input type="password" name="password" class="form-control"
+                           placeholder="请输入密码" required>
+                </div>
+
+                <!-- 确认密码 -->
+                <div class="form-group has-feedback">
+                    <span class="fa fa-lock form-control-feedback"></span>
+                    <input type="password" name="confirmPassword" class="form-control"
+                           placeholder="请再次输入密码" required>
+                </div>
+
+                <!-- 操作按钮 -->
+                <div class="row">
+                    <div class="col-8">
+                        <a href="/admin/login" class="text-primary">已有账号？立即登录</a>
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">
+                            立即注册
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 保持与登录页相同的脚本引用 -->
+<script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
+<script th:src="@{/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/admin/dist/js/plugins/particles.js}"></script>
+<script th:src="@{/admin/dist/js/plugins/login-bg-particles.js}"></script>
+
+<!-- 密码一致性验证脚本 -->
+<script>
+    $(document).ready(function() {
+        $('form').submit(function(e) {
+            let password = $('input[name=password]').val();
+            let confirmPassword = $('input[name=confirmPassword]').val();
+
+            if(password !== confirmPassword) {
+                alert('两次输入的密码不一致！');
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+</body>
+</html>
