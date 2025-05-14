@@ -306,39 +306,36 @@
 
 - 根据查询到的标签数据列表和总记录数，构造 `PageResult` 对象，该对象包含了分页数据、总记录数、当前页码、每页条数等信息。
 - 将 `PageResult` 对象作为响应结果返回给前端，前端接收到数据后，jqGrid 会根据返回的数据更新表格的显示内容，呈现出分页后的标签列表。
-
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/d3558b1ff828cf6bb7ca10b79dc167f.png)
 ------
 
 #### **2. 新增标签模块**
 
 ##### 前端页面请求新增标签
 
-- 在 `tag.html` 页面中，用户点击 “新增” 按钮，触发 `tagAdd()` 函数。
-- `tagAdd()` 函数重置表单数据，设置模态框标题为 “标签添加”，并显示模态框 `#tagModal`。
-- 用户在模态框中填写标签名称。
-- 用户点击模态框中的 “确认” 按钮（`#saveButton`）时，触发表单验证，若验证通过，则将表单数据通过 `$("#tagForm").serialize()` 序列化，并发送 POST 请求到 `/admin/tags/save` 接口。
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/a447165196a2a1fe5c31c92f1385249.png)
+1. **在 tag.html 页面中**，用户在搜索框中输入标签名称后，点击“新增”按钮，会触发一个 JavaScript 函数。
+2. 该函数获取搜索框中的标签名称，并进行非空校验。若标签名称为空，则弹出提示框提醒用户标签名称不能为空。
+3. 校验通过后，使用 AJAX 技术将标签名称发送到后端的 `/admin/tags/save` 接口。
 
 ##### 后端接收新增请求
-
-- 在 `TagController` 控制器的 `/tags/save` 请求映射方法中，使用 `@RequestParam` 注解接收前端传来的标签名称 `tagName` 参数。
-- 检查 `tagName` 是否为空，若为空则返回相应的错误结果。
+1. **在 TagController 控制器中**，定义了 `/tags/save` 请求映射方法，使用 `@RequestParam` 注解接收前端传来的标签名称 `tagName` 参数。
+2. 控制器首先检查 `tagName` 是否为空，若为空则返回相应的错误结果。
 
 ##### 构造标签保存逻辑
-
-- 将接收到的参数封装成 `BlogTag` 对象，为后续的数据库保存操作做准备。
+1. 将接收到的标签名称封装成 `BlogTag` 对象，为后续的数据库保存操作做准备。
 
 ##### 调用服务层进行标签保存
-
-- 控制器调用 `TagService` 服务层的 `saveTag` 方法，并将标签名称作为参数传递，由服务层负责具体的业务逻辑处理和数据保存操作。
+1. 控制器调用标签服务层的 `saveTag` 方法，并将标签名称作为参数传递，由服务层负责具体的业务逻辑处理和数据保存操作。
 
 ##### 数据库标签保存操作
-
-- 在 `TagServiceImpl` 服务实现类的 `saveTag` 方法中，调用 `BlogTagMapper` 数据访问层的 `insertSelective` 方法。
-- `insertSelective` 方法将新的标签数据插入到数据库中。
+1. **在标签服务实现类（TagServiceImpl）中**，先查询数据库中是否存在相同名称的标签。如果不存在，则调用数据访问层（BlogTagMapper）的 `insertSelective` 方法。
+2. 数据访问层的 `insertSelective` 方法将新的标签数据插入到数据库中。
 
 ##### 返回保存结果给前端
 
-- 根据标签保存操作是否成功，构造相应的结果对象，若成功则返回成功结果，前端会关闭模态框、显示成功提示并刷新列表；若失败则返回失败结果，前端显示相应的错误提示。
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/fb67707ebeee4f992250fa2d27bfdce.png)
+1. 根据标签保存操作是否成功，构造相应的结果对象。若成功则返回成功结果，前端收到后会关闭模态框、显示成功提示并刷新列表；若失败则返回失败结果，前端显示相应的错误提示。
 
 ------
 
@@ -406,7 +403,7 @@
 
 - 根据查询结果构造 `PageResult` 对象，包含分页数据、总记录数等信息，作为响应结果返回给前端。
 - 前端接收到数据后，jqGrid 更新表格显示内容，呈现分页后的博客列表。
-
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/69d1b1d388a3c4044e1b5d90c0b04db.png)
 ------
 
 #### **新增博客功能**
@@ -485,6 +482,8 @@
    - 关联关系包含 `blogId`（当前博客 ID）和 `tagId`（标签 ID）。
 3. **批量插入关联关系**：
    - 调用 `blogTagRelationMapper.batchInsert()` 一次性插入所有关联关系。
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/b739e9bfa3a915c5f650f68e50eeb63.png)
+
 
 ------
 
@@ -577,7 +576,7 @@
      - 分割标签字符串，过滤重复标签（最多 6 个）。
      - 不存在的标签批量插入到 `tb_blog_tag` 表。
    - **重建关联**：将新标签与博客 ID 关联，批量插入到 `tb_blog_tag_relation` 表。
-
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/29fa45ec0cc620500e2db5ce6372180.png)
 ------
 
 #### **博客删除功能**
