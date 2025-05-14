@@ -149,7 +149,7 @@
 
 #### **2. 分类列表新增功能**
 ![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/0a1effc069cd4c7cea16fa1716aec70.png)
-![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/6c22e8570572ecefb33c37f9c54bfc3.png)
+
 ##### 前端页面请求新增分类
 
 - 在 `category.html` 页面中，用户点击 “新增” 按钮，触发 `categoryAdd()` 函数。
@@ -158,7 +158,7 @@
 - 用户点击模态框中的 “确认” 按钮（`#saveButton`）时，触发表单验证，若验证通过，则将表单数据通过 `$("#categoryForm").serialize()` 序列化，并发送 POST 请求到 `/admin/categories/save` 接口。
 
 **后端接收新增请求**
-
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/6c22e8570572ecefb33c37f9c54bfc3.png)
 - 在 `CategoryController` 控制器的 `/categories/save` 请求映射方法中，使用 `@RequestParam` 注解接收前端传来的分类名称 `categoryName` 和分类图标 `categoryIcon` 参数。
 - 检查 `categoryName` 和 `categoryIcon` 是否为空，若为空则返回相应的错误结果。
 
@@ -183,7 +183,7 @@
 
 #### **3. 分类列表更新功能**
 ![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/0a1effc069cd4c7cea16fa1716aec70.png)
-![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/0b8bc6719d3f45dd8e07de4ac3f039c.png)
+
 ##### 前端页面请求更新分类
 
 - 在 `category.html` 页面中，用户点击 “修改” 按钮，触发 `categoryEdit()` 函数。
@@ -192,7 +192,7 @@
 - 用户点击模态框中的 “确认” 按钮（`#saveButton`）时，触发表单验证，若验证通过，则将表单数据通过 `$("#categoryForm").serialize()` 序列化，并发送 POST 请求到 `/admin/categories/update` 接口。
 
 ##### 后端接收更新请求
-
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/0b8bc6719d3f45dd8e07de4ac3f039c.png)
 - 在 `CategoryController` 控制器的 `/categories/update` 请求映射方法中，使用 `@RequestParam` 注解接收前端传来的分类 ID `categoryId`、分类名称 `categoryName` 和分类图标 `categoryIcon` 参数。
 - 检查 `categoryId` 是否合法（不为 `null` 且大于 0），并检查 `categoryName` 和 `categoryIcon` 是否为空，若为空则返回相应的错误结果。
 
