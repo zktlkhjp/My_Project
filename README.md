@@ -144,11 +144,12 @@
 
 - 根据查询到的分类数据列表和总记录数，构造 `PageResult` 对象，该对象包含了分页数据、总记录数、当前页码、每页条数等信息。
 - 将 `PageResult` 对象作为响应结果返回给前端，前端接收到数据后，jqGrid 会根据返回的数据更新表格的显示内容，呈现出分页后的分类列表。
-![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/05bbef415a7be5aa8abfacace7d7a07.png)
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/f59dedf23ff02691e375fa06b00f4af.png)
 ------
 
 #### **2. 分类列表新增功能**
-
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/0a1effc069cd4c7cea16fa1716aec70.png)
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/6c22e8570572ecefb33c37f9c54bfc3.png)
 ##### 前端页面请求新增分类
 
 - 在 `category.html` 页面中，用户点击 “新增” 按钮，触发 `categoryAdd()` 函数。
@@ -181,7 +182,8 @@
 ------
 
 #### **3. 分类列表更新功能**
-
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/0a1effc069cd4c7cea16fa1716aec70.png)
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/0b8bc6719d3f45dd8e07de4ac3f039c.png)
 ##### 前端页面请求更新分类
 
 - 在 `category.html` 页面中，用户点击 “修改” 按钮，触发 `categoryEdit()` 函数。
@@ -216,7 +218,7 @@
 #### **4. 分类详情功能**
 
 ##### 前端页面请求分类详情
-
+![image](https://github.com/zktlkhjp/My_Project/blob/master/pic/0b8bc6719d3f45dd8e07de4ac3f039c.png)
 - 在 `category.html` 页面中，用户点击 “修改” 按钮，触发 `categoryEdit()` 函数。
 - `categoryEdit()` 函数通过 `getSelectedRow()` 获取选中的分类 ID，并发送 GET 请求到 `/admin/categories/info/{id}` 接口获取分类详情。
 - 将获取到的分类详情数据填充到模态框 `#categoryModal` 中，用户可以在模态框中查看和修改分类信息。
